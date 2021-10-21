@@ -1,0 +1,151 @@
+@media (prefers-color-scheme: light) {
+    :root {
+        --color-body-background: var(--color-twitch-white);
+        --color-sidebar-background: var(--color-twitch-lightgray);
+        --color-body-text: var(--color-twitch-black);
+        --color-radio-button: var(--color-twitch-darkgray);
+        --color-text-input-background: var(--color-twitch-white);
+        --color-text-input-text: var(--color-twitch-black);
+        --color-gradient-inner: var(--color-twitch-lightgray);
+        --sideBySiteMultiSelectColor: var(--color-twitch-purple);
+        --sideBySiteMultiSelectSearchFocusColor: var(--color-twitch-white);
+        --sideBySiteMultiSelectButtonBackgroundColor: var(--color-twitch-purple);
+        --sideBySiteMultiSelectButtonBorder: 2px solid var(--color-twitch-purple);
+        --sideBySiteMultiSelectSearchFocusBgColor: var(--color-twitch-pac);
+        --sideBySiteMultiSelectButtonColor: var(--color-twitch-black);
+        --sideBySiteMultiSelectHoverTextColor: var(--color-body-background);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-body-background: var(--color-twitch-black);
+        --color-sidebar-background: var(--color-twitch-darkgray);
+        --color-body-text: var(--color-twitch-lightgray);
+        --color-radio-button: var(--color-twitch-lightgray);
+        --color-text-input-background: var(--color-twitch-darkgray);
+        --color-text-input-text: var(--color-twitch-lightgray);
+        --color-gradient-inner: var(--color-twitch-darkgray);
+        --sideBySiteMultiSelectColor: var(--color-twitch-purple);
+        --sideBySiteMultiSelectSearchFocusColor: var(--color-twitch-pac);
+        --sideBySiteMultiSelectButtonBackgroundColor: var(--color-twitch-purple);
+        --sideBySiteMultiSelectButtonBorder: 2px solid var(--color-twitch-purple);
+        --sideBySiteMultiSelectSearchFocusBgColor: var(--color-twitch-pac);
+        --sideBySiteMultiSelectButtonColor: var(--color-twitch-white);
+    }
+}
+
+:root {
+    --font-family-base: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --color-twitch-black: #0e0e10;
+    --color-twitch-darkgray: #1f1f23;
+    --color-twitch-jiggle: #fab4ff;
+    --color-twitch-lightgray: #efeff1;
+    --color-twitch-lightpurple: #adadb8;
+    --color-twitch-pac: #ffca5f;
+    --color-twitch-purple: #9146ff;
+    --color-twitch-white: #f7f7f8;
+    --color-twitch-wipeout: #00c8af;
+    --sideBySiteMultiSelectBorderWidth: 2px;
+    --sideBySiteMultiSelectHeight: 200px;
+    --sideBySiteMultiSelectOrderSize: 32px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    position: relative;
+}
+
+body {
+    margin: 0;
+    background: var(--color-body-background);
+    font: 100% / 1.25rem var(--font-family-base);
+    color: var(--color-body-text);
+}
+
+#page-contain {
+    padding: 15px 15px 0;
+    width: 100%;
+    max-width: 714px;
+    height: 100%;
+}
+
+.heading {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.gradient-wrapped {
+    border: var(--gradient-width) solid transparent;
+    border-radius: 20px;
+    background: linear-gradient(
+                    var(--gradient-direction),
+                    var(--color-inner-background),
+                    var(--color-inner-background)
+                )
+                padding-box,
+                linear-gradient(
+                    var(--gradient-direction),
+                    var(--color-gradient-start),
+                    var(--color-gradient-end)
+                )
+                border-box;
+}
+
+a {
+    color: var(--color-twitch-purple);
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.divider {
+    margin: 20px auto;
+    border: 0;
+    width: 75%;
+    height: 1px;
+    background: linear-gradient(
+                    to right,
+                    transparent,
+                    var(--color-divider),
+                    transparent
+                );
+}
+
+::selection {
+    color: var(--color-twitch-white);
+    background: var(--color-twitch-purple);
+}
+
+
+/**
+ * Custom Fonts
+ */
+
+ /* Inter */
+ @font-face {
+    font-family: "Inter";
+    font-named-instance: "Normal";
+    src: url("../fonts/Inter/Inter-regular.woff2") format("woff2 supports variations"),
+         url("../fonts/Inter/Inter-regular.woff2") format("woff2-variations");
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    font-named-instance: "Italic";
+    src: url("../fonts/Inter/Inter-italic.woff2") format("woff2 supports variations"),
+         url("../fonts/Inter/Inter-italic.woff2") format("woff2-variations");
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+}

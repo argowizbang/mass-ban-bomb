@@ -1,0 +1,114 @@
+@media (prefers-color-scheme: light) {
+    :root {
+        --color-body-background: var(--color-twitch-white);
+        --color-sidebar-background: var(--color-twitch-lightgray);
+        --color-body-text: var(--color-twitch-black);
+        --color-radio-button: var(--color-twitch-darkgray);
+        --color-text-input-background: var(--color-twitch-white);
+        --color-text-input-text: var(--color-twitch-black);
+        --color-gradient-inner: var(--color-twitch-lightgray);
+        --sideBySiteMultiSelectColor: var(--color-twitch-purple);
+        --sideBySiteMultiSelectSearchFocusColor: var(--color-twitch-white);
+        --sideBySiteMultiSelectButtonBackgroundColor: var(--color-twitch-purple);
+        --sideBySiteMultiSelectButtonBorder: 2px solid var(--color-twitch-purple);
+        --sideBySiteMultiSelectSearchFocusBgColor: var(--color-twitch-pac);
+        --sideBySiteMultiSelectButtonColor: var(--color-twitch-black);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-body-background: var(--color-twitch-black);
+        --color-sidebar-background: var(--color-twitch-darkgray);
+        --color-body-text: var(--color-twitch-lightgray);
+        --color-radio-button: var(--color-twitch-lightgray);
+        --color-text-input-background: var(--color-twitch-darkgray);
+        --color-text-input-text: var(--color-twitch-lightgray);
+        --color-gradient-inner: var(--color-twitch-darkgray);
+        --sideBySiteMultiSelectColor: var(--color-twitch-purple);
+        --sideBySiteMultiSelectSearchFocusColor: var(--color-twitch-pac);
+        --sideBySiteMultiSelectButtonBackgroundColor: var(--color-twitch-purple);
+        --sideBySiteMultiSelectButtonBorder: 2px solid var(--color-twitch-purple);
+        --sideBySiteMultiSelectSearchFocusBgColor: var(--color-twitch-pac);
+        --sideBySiteMultiSelectButtonColor: var(--color-twitch-white);
+    }
+}
+
+:root {
+    --font-family-base: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --color-twitch-black: #0e0e10;
+    --color-twitch-darkgray: #1f1f23;
+    --color-twitch-jiggle: #fab4ff;
+    --color-twitch-lightgray: #efeff1;
+    --color-twitch-lightpurple: #adadb8;
+    --color-twitch-pac: #ffca5f;
+    --color-twitch-purple: #9146ff;
+    --color-twitch-white: #f7f7f8;
+    --color-twitch-wipeout: #00c8af;
+    --sideBySiteMultiSelectBorderWidth: 2px;
+    --sideBySiteMultiSelectHeight: 200px;
+    --sideBySiteMultiSelectOrderSize: 32px;
+}
+
+.sidebar {
+    background: var(--color-sidebar-background);
+}
+
+    .sidebar .sidebar-section {
+        border: 2px solid transparent;
+        color: #b0b0ac;
+    }
+
+    .sidebar .sidebar-section.active,
+    .sidebar .sidebar-section:focus {
+        border-color: var(--color-twitch-purple);
+    }
+
+    .sidebar .sidebar-section.active {
+        color: var(--color-twitch-purple);
+    }
+
+        .sidebar .sidebar-section.active .section-icon {
+            background-color: var(--color-twitch-purple);
+        }
+
+        .sidebar .sidebar-section .section-label {
+            font-size: 14px;
+        }
+
+        #tab-twitch .section-icon {
+            -webkit-mask: url(../img/TwitchGlitchWhite.svg) center center / contain no-repeat !important;
+            mask: url(../img/TwitchGlitchWhite.svg) center center / contain no-repeat !important;
+        }
+
+.field-list .ep-list:active,
+.field-list .ep-list:focus {
+    border-color: var(--color-twitch-purple);
+}
+
+.field-list .ep-list-button:active {
+    border-color: var(--color-twitch-purple);
+    color: var(--color-twitch-purple);
+}
+
+.radio-option {
+    line-height: 20px;
+}
+
+    .field-radio .radio-option .check-circle {
+        border-color: var(--color-radio-button);
+    }
+
+    .field-radio .radio-option:hover input ~ .check-circle {
+        border-color: var(--color-twitch-purple);
+    }
+
+    .radio-option:hover {
+        color: var(--color-twitch-purple);
+    }
+
+        .field-radio .radio-option:hover input:checked ~ .check-circle,
+        .field-radio .radio-option input:checked ~ .check-circle {
+            border-color: var(--color-twitch-purple);
+            background-color: var(--color-twitch-purple);
+        }

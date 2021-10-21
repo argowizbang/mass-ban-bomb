@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+
+        <title>Processing action&hellip; | Mass Ban Bomb for Twitch</title>
+      
+        <link rel="stylesheet" href="assets/css/style.css">
+ 
+        <link rel="stylesheet" href="assets/css/action.css">
+    </head>
+
+    <body>
+        <main id="page-contain">
+            <h1 id="page-title">Processing...</h1>
+
+            <hr class="divider">
+
+            <p id="action-desc" class="desc">
+                <span id="action-label" class="desc-label">Action:</span> <span id="action"></span>
+            </p>
+
+            <div id="reason-desc" class="desc">
+                <span id="reason-label" class="desc-label">Ban Reason:</span> <span id="ban-reason-contain"><textarea id="ban-reason" class="gradient-wrapped" rows="3" cols="25" readonly></textarea></span>
+            </div>
+
+            <hr class="divider">
+
+            <table id="action-table">
+                <thead id="action-table-head">
+                    <tr>
+                        <th scope="col">Channel</th>
+
+                        <th scope="col">Accounts Being Actioned</th>
+                    </tr>
+                </thead>
+
+                <tbody id="action-table-body"></tbody>
+            </table>
+        </main>
+
+        <footer id="action-footer">
+            <div id="progress-contain">
+                <div id="progress-counter">Progress: <span id="current-count"></span> / <span id="total-count"></span></div>
+
+                <progress id="progress-bar" value="0.0"></progress>
+            </div>
+
+            <button type="button" id="pause-action" class="action-control" title="Pause the current action">Pause</button>
+
+            <button type="button" id="continue-action" class="action-control" title="Continue the current action">Continue</button>
+
+            <button type="button" id="stop-action" class="action-control" title="Close this window and immediately stop the currently running action">Terminate</button>
+
+            <button type="button" id="close-window" class="action-control" title="Close this window">Close Window</button>
+        </footer>
+
+        <script src="assets/js/renderer-action.js" type="module"></script>
+    </body>
+</html>

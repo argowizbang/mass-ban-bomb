@@ -1,0 +1,35 @@
+#account-contain {
+    text-align: center;
+}
+
+    #account-title {
+        margin: 4px 10px 12px;
+        font-size: 36px;
+        line-height: 1.7rem;
+    }
+
+    .profile-picture {
+        display: inline-block;
+        overflow: hidden;
+        vertical-align: middle;
+        margin: 0 7px 0 0;
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+        background-color: var(--color-body-text);
+        -webkit-mask: url(../img/logged-out.svg) center center / contain no-repeat;
+        mask: url(../img/logged-out.svg) center center / contain no-repeat;
+    }
+
+    .logged-in .profile-picture {
+        -webkit-mask: none;
+        mask: none;
+    }
+
+    .logged-out .username {
+        font-style: italic;
+    }
+
+    .logged-out #account-action {
+        display: none;
+    }

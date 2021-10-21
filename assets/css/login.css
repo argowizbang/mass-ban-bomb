@@ -1,0 +1,249 @@
+body {
+    height: 100vh;
+}
+
+    #page-contain {
+        padding-top: 75px;
+    }
+
+        #login-contain {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 0.2fr repeat(3, 0.3fr) 1fr;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+            #mbb-logo-contain {
+                grid-area: 1 / 1 / 2 / 2;
+                width: 256px;
+                height: 256px;
+                margin: 0 auto 25px;
+            }
+
+            #login-btn {
+                grid-area: 2 / 1 / 3 / 2;
+                display: inline-block;
+                user-select: none;
+                overflow: hidden;
+                margin: 0 auto;
+                border: 0;
+                padding: 7px;
+                width: 50%;
+                height: 70px;
+                background: var(--color-twitch-purple) url("../img/TwitchGlitchWhite.svg") 12px center / 40px no-repeat;
+                font: 48px "Twitchy.TV", var(--font-family-base);
+                color: var(--color-twitch-lightgray);
+            }
+
+                #login-btn::before {
+                    --mouse-gradient-size: 0;
+                    content: "";
+                    position: absolute;
+                    top: var(--mouse-gradient-y);
+                    left: var(--mouse-gradient-x);
+                    transform: translate(-50%, -50%);
+                    width: var(--mouse-gradient-size);
+                    height: var(--mouse-gradient-size);
+                    background: radial-gradient(
+                                    circle closest-side,
+                                    var(--color-twitch-pac),
+                                    transparent
+                                );
+                    transition: width 0.2s ease,
+                                height 0.2s ease;
+                }
+
+                #login-btn:hover::before {
+                    --mouse-gradient-size: 150px;
+                }
+
+                #login-text {
+                    pointer-events: none;
+                    z-index: 2;
+                    top: -100%;
+                    left: 20px;
+                }
+
+                #login-btn .ripple {
+                    pointer-events: none;
+                    position: absolute;
+                    z-index: 1;
+                    transform: translate(-50%, -50%) scale(0);
+                    border-radius: 50%;
+                    width: 100px;
+                    height: 100px;
+                    animation: circle-scale 0.5s ease-out;
+                    background: var(--color-twitch-jiggle);
+                }
+
+            #account-note-heading {
+                grid-area: 3 / 1 / 4 / 2;
+                margin: 25px 0 0;
+                text-align: center;
+            }
+
+            .account-note {
+                grid-area: 4 / 1 / 5 / 2;
+                font-size: 15px;
+                color: var(---color-body-text);
+            }
+
+            .account-note + .account-note {
+                grid-area: 5 / 1 / 6 / 2;
+            }
+
+            #login-spinner {
+                margin: 0 auto;
+                border: 0.01em solid var(--color-twitch-darkgray);
+                border-radius: 50%;
+                width: 1em;
+                height: 1em;
+                font-size: 100px;
+            }
+
+                #login-spinner .ball {
+                    position: absolute;
+                    width: 0.2em;
+                    height: 0.2em;
+                    border-radius: 50%;
+                    animation: ball-opacity ease-in-out infinite alternate,
+                            spinner-rotate linear infinite;
+                }
+
+                #login-spinner .ball:nth-child(1) {
+                    top: 0;
+                    left: 50%;
+                    margin: 0 0 0 -0.1em;
+                    background: var(--color-twitch-purple);
+                    transform-origin: 50% 250%;
+                    animation-duration: 3.74s, 1.16s;
+                }
+
+                #login-spinner .ball:nth-child(2) {
+                    top: 50%;
+                    right: 0;
+                    margin: -0.1em 0 0;
+                    background: var(--color-twitch-jiggle);
+                    transform-origin: -150% 50%;
+                    animation-duration: 4.31s, 1.84s;
+                }
+
+                #login-spinner .ball:nth-child(3) {
+                    bottom: 0;
+                    left: 50%;
+                    margin: 0 0 0 -0.1em;
+                    background: var(--color-twitch-pac);
+                    transform-origin: 50% -150%;
+                    animation-duration: 5.13s, 1.44s;
+                }
+
+                #login-spinner .ball:nth-child(4) {
+                    top: 50%;
+                    left: 0;
+                    margin: -0.1em 0 0;
+                    background: var(--color-twitch-wipeout);
+                    transform-origin: 250% 50%;
+                    animation-duration: 5.24s, 1.71s;
+                }
+
+            .logging-in #mbb-logo-contain,
+            .logging-in #login-btn,
+            .logging-in #account-note-heading,
+            .logging-in .account-note,
+            #spinner-contain {
+                display: none;
+            }
+
+            #spinner-contain {
+                grid-area: 2 / 1 / 6 / 2;
+                position: absolute;
+                top: 0;
+                margin: 0 auto;
+            }
+
+                #logging-in-text {
+                    margin: 24px 0 0;
+                    font-size: 48px;
+                    text-align: center;
+                }
+
+            .logging-in #spinner-contain {
+                display: block;
+            }
+
+
+/**
+ * Animations
+ */
+@keyframes ball-opacity {
+    12.0% {
+        opacity: 0.80;
+    }
+
+    19.5% {
+        opacity: 0.88;
+    }
+
+    37.2% {
+        opacity: 0.64;
+    }
+
+    40.5% {
+        opacity: 0.52;
+    }
+
+    52.7% {
+        opacity: 0.69;
+    }
+
+    60.2% {
+        opacity: 0.60;
+    }
+
+    66.6% {
+         opacity: 0.52;
+    }
+
+    70.0% {
+        opacity: 0.63;
+    }
+
+    79.9% {
+        opacity: 0.60;
+    }
+
+    84.2% {
+        opacity: 0.75;
+    }
+
+    91.0% {
+        opacity: 0.87;
+    }
+}
+
+@keyframes circle-scale {
+    to {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(3);
+    }
+}
+
+@keyframes spinner-rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/**
+ * Custom Fonts
+ */
+
+/* Twitchy.TV */
+@font-face {
+    font-family: "Twitchy.TV";
+    src: url("../fonts/Twitchy.TV.woff2") format("woff2");
+}

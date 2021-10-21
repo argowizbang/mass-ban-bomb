@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+
+        <title>Mass Ban Bomb for Twitch</title>
+
+        <link rel="stylesheet" href="lib/side-by-side-multiselect/side-by-side-multiselect.min.css">
+      
+        <link rel="stylesheet" href="assets/css/style.css">
+ 
+        <link rel="stylesheet" href="assets/css/dashboard.css">
+    </head>
+
+    <body>
+        <main id="page-contain">
+            <header id="dashboard-header">
+                <h1 id="dashboard-title" class="page-title">Mass Ban Dashboard</h1>
+            </header>
+
+            <hr class="divider">
+
+            <form id="action-form">
+                <fieldset id="form-content">
+                    <div id="accounts-list-contain">
+                        <label id="accounts-list-label" for="accounts-list" class="label-text" title="Full list of accounts to be banned">Accounts List</label>
+
+                        <!-- Only adding a container here to hide the ugly scrollbar clipping -->
+                        <div id="accounts-list-textarea-contain" class="gradient-wrapped">
+                            <textarea name="accounts-list" id="accounts-list" cols="30" rows="12" placeholder="Enter one account name per line" title="Enter the list of accounts to ban here, one account name per line" autocomplete="off" spellcheck="false"></textarea>
+                        </div>
+                    </div>
+
+                    <div id="accounts-file-drop-zone" class="gradient-wrapped">
+                        <p id="drop-zone-text">Click this area or drag and drop TXT or CSV files anywhere in this window to auto add their contents to the accounts list (one account per line)</p>
+                    </div>
+
+                    <div id="ban-reason-contain">
+                        <label class="label-text" title="An optional reason for banning these accounts">Reason for Ban (optional)</label>
+
+                        <input type="text" id="ban-reason" class="gradient-wrapped" name="ban-reason" maxlength="469">
+                    </div>
+
+                    <div id="channels-select-contain">
+                        <div id="your-channels-label" class="label-text" title="Channels you have saved in your &quot;Moderated Channels&quot;" list">
+                            Your Channels
+                        </div>
+
+                        <div id="selected-channels-label" class="label-text" title="Channels you have selected to run this action in">
+                            Selected Channels
+                        </div>
+
+                        <select id="channels-select" name="channels[]" multiple></select>
+
+                        <div id="all-channels-selectors">
+                            <button type="button" id="your-channels-select-all" class="label-text alt-label channels-selector" data-menu-index="0">
+                                Select All
+                            </button>
+
+                            <button type="button" id="selected-channels-remove-all" class="label-text alt-label channels-selector" data-menu-index="1">
+                                Remove All
+                            </button>
+                        </div>
+
+                        <p id="channels-select-instruction">Select channels from "Your Channels" to run the mass ban/unban in. Use the buttons in the middle to sort your selected channels in the order you'd like to run the ban/unban.</p>
+                    </div>
+
+                    <hr class="divider">
+
+                    <div id="unban-action-contain">
+                        <label id="rocker-switch">
+                            <span id="toggle-label"></span>
+
+                            <input type="checkbox" id="unban-action-cb" name="unban-action">
+
+                            <span id="switch-unban" class="switch-half">Un</span>
+
+                            <span id="switch-ban" class="switch-half">Ban</span>
+                        </label>
+
+                        <label for="unban-action-cb" class="label-text alt-label" title="Whether to ban or unban the accounts in the provided list">Action To Take</label>
+                    </div>
+
+                    <div id="submit-contain">
+                        <label id="confirm-switch">
+                            <input type="checkbox" id="confirm-cb" name="confirm">
+
+                            <span id="toggle-rocker">
+                                <span id="light"></span>
+                                
+                                <span id="dots"></span>
+
+                                <span id="characters"></span>
+
+                                <span id="shine"></span>
+
+                                <span id="shadow"></span>
+                            </span>
+                        </label>
+
+                        <div id="launch-button-contain">
+                            <input type="submit" id="launch-button" title="Please confirm that you're ready first" value="GO" disabled>
+                        </div>
+
+                        <label for="confirm-cb" class="label-text alt-label" title="Flip this switch to confirm you really want to run this action; this is here to help prevent accidents">Ready?</label>
+                    </div>
+                </fieldset>
+            </form>
+        </main>
+
+        <div id="processing-lock"></div>
+
+        <script src="lib/side-by-side-multiselect/side-by-side-multiselect.umd.min.js"></script>
+
+        <script src="assets/js/renderer-dashboard.js" type="module"></script>
+    </body>
+</html>

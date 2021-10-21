@@ -1,0 +1,108 @@
+#about-window {
+    max-width: 468px;
+}
+
+    #mbb-logo-contain {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+    }
+
+    #app-name {
+        margin: 0 10px 10px;
+        border: 2px outset var(--color-twitch-purple);
+        border-radius: 20px;
+        padding: 2px;
+        background: var(--color-twitch-purple);
+        font-size: 1.15rem;
+        text-align: center;
+        color: var(--color-twitch-white);
+    }
+
+    #description {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .meta-item {
+        margin: 0 5px;
+        font-size: 11px;
+    }
+
+    #about-info {
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        grid-row-gap: 5px;
+        align-items: center;
+        margin: 10px 0;
+    }
+
+        #about-info .meta-name,
+        #about-info .meta-item {
+            border: 2px solid transparent;
+            border-radius: 20px;
+            background:
+                linear-gradient(
+                    var(--color-body-background),
+                    var(--color-body-background)
+                ) padding-box,
+                linear-gradient(
+                    var(--gradient-direction),
+                    var(--color-twitch-purple),
+                    transparent 90%
+                ) border-box;
+        }
+
+        #about-info .meta-name {
+            --gradient-direction: to left;
+            padding: 7px 10px;
+            font-size: 22px;
+            text-align: right;
+        }
+
+        #about-info .meta-item {
+            --gradient-direction: to right;
+            padding: 2px 10px;
+            max-height: 25px;
+            font-size: 16px;
+            line-height: 17px;
+        }
+
+            #about-info .meta-item::before {
+                content: "";
+                position: absolute;
+                top: 45%;
+                left: 0;
+                transform: translate(-100%, 50%);
+                width: 7px;
+                height: 2px;
+                background: var(--color-twitch-purple);
+            }
+
+            #about-info .meta-item::after {
+                background: linear-gradient(
+                    to right,
+                    var(--color-twitch-purple),
+                    transparent 90%
+                );
+            }
+
+    #about-window .divider {
+        --color-divider: var(--color-twitch-wipeout);
+        margin-bottom: 12px;
+    }
+
+    #about-window .divider:nth-of-type(2) {
+        --color-divider: var(--color-twitch-pac);
+        margin-top: 12px;
+    }
+
+    .common-sense {
+        margin: 6px auto;
+        font-size: 13px;
+    }
+
+    .common-sense:not(:last-child) {
+        text-align: center;
+    }

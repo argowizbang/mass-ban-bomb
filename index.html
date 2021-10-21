@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+
+        <title>Mass Ban Bomb for Twitch</title>
+
+        <link rel="stylesheet" href="assets/css/style.css">
+        
+        <link rel="stylesheet" href="assets/css/login.css">
+    </head>
+
+    <body>
+        <main id="page-contain">
+            <div id="login-contain">
+                <figure id="mbb-logo-contain">
+                    <img src="assets/icons/icon.png" width="256" height="256" alt="Mass Ban Bomb for Twitch logo" id="mbb-logo" class="mbb-logo">
+                </figure>
+
+                <button type="button" id="login-btn" class="btn" data-tilt data-tilt-glare="true">
+                    <span id="login-text">Login</span>
+                </button>
+
+                <h1 id="account-note-heading">JUST A QUICK HEADS UP:</h1>
+
+                <p class="account-note">Twitch has a hard limit of 100 commands/messages every 30 seconds for moderators so if the list of accounts you'll be actioning is fairly large you may want to use an account you don't plan on actively chatting on Twitch with while the action is actually being processed.</p>
+                
+                <p class="account-note">This is because chatting on the same account you use here while running a mass ban/unban can cause mod commands or chat messages from that account to not go through or, at worst, cause Twitch to ignore anything you send in chat for 30 minutes.</p>
+
+                <div id="spinner-contain">
+                    <div id="login-spinner">
+                        <div class="ball"></div>
+
+                        <div class="ball"></div>
+                        
+                        <div class="ball"></div>
+                        
+                        <div class="ball"></div>
+                    </div>
+
+                    <p id="logging-in-text">Logging in...</p>
+                </div>
+            </div>
+        </main>
+
+        <script src="lib/vanilla-tilt.min.js"></script>
+        <script src="assets/js/renderer-main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,354 @@
+#page-contain {
+    padding: 0 0 45px;
+}
+
+#page-title {
+    text-align: center;
+}
+
+#page-title + .divider {
+    --color-divider: var(--color-twitch-purple);
+}
+
+.desc {
+    padding: 0 0 0 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#action {
+    font-weight: normal;
+    font-style: italic
+}
+
+.reason-label {
+    vertical-align: top;
+}
+
+.unbanning #reason-desc {
+    display: none;
+}
+
+    #ban-reason-contain {
+        --gradient-width: 2px;
+        --color-inner-background: var(--color-text-input-background);
+        --gradient-direction: to bottom;
+        --color-gradient-start: var(--color-twitch-purple);
+        --color-gradient-end: var(--color-twitch-pac);
+        display: inline-block;
+        overflow: hidden;
+        vertical-align: top;
+    }
+
+        #ban-reason {
+            margin: 0 0 0 23px;
+            padding: 7px 10px;
+            font: 13px monospace;
+            color: var(--color-text-input-text);
+        }
+
+#reason-desc + .divider {
+    --color-divider: var(--color-twitch-purple);
+}
+
+.unbanning #reason-desc + .divider {
+    --color-divider: var(--color-twitch-pac);
+}
+
+#action-table {
+    width: 100%;
+}
+
+    #action-table-head th {
+        border-bottom: 2px solid var(--color-twitch-purple);
+        text-align: center;
+    }
+
+    .channel-item {
+        border-right: 1px dashed var(--color-twitch-purple);
+        padding: 0 15px;
+        text-align: right;
+    }
+
+    #accounts-to-action {
+        margin: 0 auto;
+        padding: 0;
+        list-style-position: inside;
+    }
+
+    .list-item {
+        padding: 20px 0;
+    }
+
+    .channel-item,
+    .accounts-to-action {
+        border-bottom: 1px solid var(--color-twitch-purple);
+    }
+
+    .channel-item {
+        margin: 7px 20px;
+        padding: 0 15px 0 0;
+    }
+
+        .channel-name {
+            margin: 55px 0;
+        }
+
+    .channel-accounts {
+        margin: 55px 0;
+        font-size: 14px;
+        transition: opacity 0.3s 334ms;
+    }
+
+    .has-note::after {
+        content: attr(data-note);
+        position: absolute;
+        bottom: 5px;
+        margin: 0 0 0 5px;
+        font: 16px "Top Secret";
+        text-transform: uppercase;
+        text-shadow: -1px -1px 0 var(--color-twitch-black),
+                     1px -1px 0 var(--color-twitch-black),
+                     -1px 1px 0 var(--color-twitch-black),
+                     1px 1px 0 var(--color-twitch-black);
+        transform: rotate(-10deg) scaleX(0);
+        transition: transform 334ms cubic-bezier(0.55, 0, 0.1, 1) 334ms;
+        animation: reveal 334ms cubic-bezier(0.55, 0, 0.1, 1) forwards;
+    }
+
+    .channel-item .has-note::after {
+        bottom: -80%;
+        right: calc(100% + 7px);
+        text-align: left;
+    }
+
+    .already_banned .has-note::after,
+    .bad_ban_admin .has-note::after,
+    .bad_ban_broadcaster .has-note::after,
+    .bad_ban_global_mod .has-note::after,
+    .bad_ban_self .has-note::after,
+    .bad_unban_no_ban .has-note::after {
+        bottom: 0;
+        min-width: 125px;
+        color: #c8c800;
+    }
+
+    .bad_unban_no_ban .has-note::after {
+        bottom: 5px;
+    }
+
+    .invalid_user .has-note::after {
+        bottom: -14px;
+        color: var(--color-twitch-pac);
+    }
+
+    .no_permission,
+    .no_response {
+        text-decoration: line-through;
+    }
+
+    .no_permission {
+        color: #848400;
+    }
+
+        .no_permission .has-note::after {
+            color: #c86e00;
+        }
+
+    .no_response {
+        color: #5b5b5d;
+    }
+
+        .no_response .has-note::after {
+            color: var(--color-twitch-pac);
+        }
+
+    .no_permission + .accounts-to-action .channel-accounts,
+    .no_response + .accounts-to-action .channel-accounts {
+        opacity: 0.35;
+    }
+
+    .ban_success .account-name {
+        display: inline-block;
+        transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+    }
+
+        .ban_success .has-note::before {
+            content: "";
+            position: absolute;
+            display: block;
+            margin: 0.65em 0 0;
+            box-shadow: 0 1px rgba(255, 255, 255, 0.6);
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 0, 0, 0.6);
+            transform: scaleX(0);
+            transform-origin: center left;
+            transition: transform 334ms cubic-bezier(0.55, 0, 0.1, 1);
+            animation: strikethrough 1s 334ms cubic-bezier(0.55, 0, 0.1, 1) forwards;
+        }
+
+        .ban_success .has-note::after {
+            color: #ff0000;
+            animation-delay: 1s;
+        }
+
+    .unban_success .has-note::after {
+        color: #00c800;
+    }
+
+#action-footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 0.3fr 1fr;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+    #progress-contain {
+        grid-area: 1 / 1 / 2 / 3;
+        text-align: right;
+    }
+
+        #progress-counter {
+            display: inline-block;
+            top: 4px;
+            padding: 3px 7px;
+            background: rgba(0, 0, 0, 0.5);
+            font-size: 18px;
+            color: var(--color-twitch-white);
+        }
+
+            .action-complete #current-count {
+                color: #00c800;
+            }
+
+            #total-count {
+                color: var(--color-twitch-jiggle);
+            }
+
+        #progress-bar {
+            appearance: none;
+            top: 4px;
+            width: 100%;
+            height: 20px;
+        }
+
+        #progress-bar::-webkit-progress-bar {
+            background-color: var(--color-twitch-lightgray);
+        }
+
+        #progress-bar::-webkit-progress-value {
+            background-image: linear-gradient(
+                                135deg,
+                                transparent,
+                                transparent 33%,
+                                rgba(0, 0, 0, 0.1) 33%,
+                                rgba(0, 0, 0, 0.1) 66%,
+                                transparent 66%
+                            ),
+                            linear-gradient(
+                                to bottom,
+                                rgba(255, 255, 255, 0.25),
+                                rgba(0, 0, 0, 0.2)
+                            ),
+                            linear-gradient(
+                                to right,
+                                var(--color-twitch-purple),
+                                var(--color-twitch-jiggle),
+                                var(--color-twitch-pac),
+                                var(--color-twitch-wipeout)
+                            );
+            background-size: 35px 20px, 100% 100%, 100% 100%;
+            transition: width 0.3s;
+        }
+
+    .action-control {
+        user-select: none;
+        cursor: pointer;
+        border: 0;
+        padding: 12px;
+        background: 28% center / 9px 9px no-repeat;
+        font: 21px / 1em var(--font-family-base);
+        text-transform: uppercase;
+        color: var(--color-twitch-white);
+    }
+
+    #pause-action {
+        grid-area: 2 / 1 / 3 / 2;
+        background-color: #a4a421;
+        background-image: url(../img/pause.svg);
+    }
+
+    #continue-action {
+        display: none;
+        grid-area: 2 / 1 / 3 / 2;
+        background-color: #06a421;
+        background-image: url(../img/play.svg);
+    }
+
+    .paused #pause-action {
+        display: none;
+    }
+
+    .paused #continue-action {
+        display: block;
+    }
+
+    #stop-action,
+    #close-window {
+        grid-area: 2 / 2 / 3 / 3;
+        background-color: #a40621;
+        background-image: url(../img/stop.svg);
+        background-position: 26% center;
+        
+    }
+
+    #close-window {
+        grid-area: 2 / 1 / 3 / 3;
+        display: none;
+        background-color: #a40621;
+        background-position: 35% center;
+    }
+
+    .action-complete #continue-action,
+    .action-complete #close-window {
+        display: block;
+    }
+
+
+/**
+* Animations
+*/
+@keyframes reveal {
+    from {
+        transform: rotate(-10deg) scaleX(0);
+    }
+
+    to {
+        transform: rotate(-10deg) scaleX(1);
+    }
+}
+
+@keyframes strikethrough {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+
+/**
+ * Custom Fonts
+ */
+
+/* Top Secret */
+@font-face {
+    font-family: "Top Secret";
+    src: url("../fonts/Top-Secret.woff2") format("woff2");
+}

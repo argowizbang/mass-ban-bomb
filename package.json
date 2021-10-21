@@ -1,0 +1,86 @@
+{
+    "name": "mass-ban-bomb",
+    "productName": "Mass Ban Bomb for Twitch",
+    "version": "1.0.0",
+    "description": "Execute mass bans in Twitch channels you moderate!",
+    "main": "main.js",
+    "scripts": {
+        "start":         "npm install && electron .",
+        "dist":          "electron-builder",
+        "pack":          "cross-env NODE_ENV=production && electron-builder --dir",
+        "postInstall":   "electron-builder install-app-deps"
+    },
+    "files": [],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/argowizbang/mass-ban-bomb.git"
+    },
+    "keywords": [
+        "twitch",
+        "moderate",
+        "moderator",
+        "chat",
+        "mass",
+        "ban",
+        "bots"
+    ],
+    "author": {
+        "name": "ArgoWizbang",
+        "email": "argowizbang@gmail.com"
+    },
+    "license": "GPL-3.0-only",
+    "bugs": {
+        "url": "https://github.com/argowizbang/mass-ban-bomb/issues"
+    },
+    "homepage": "https://github.com/argowizbang/mass-ban-bomb#readme",
+    "devDependencies": {
+        "electron": "^15.0.0",
+        "electron-builder": "^22.13.1"
+    },
+    "dependencies": {
+        "@twurple/api": "^5.0.4",
+        "@twurple/auth": "^5.0.4",
+        "@twurple/auth-electron": "^5.0.4",
+        "@twurple/auth-tmi": "^5.0.4",
+        "csv-string": "^4.0.1",
+        "dotenv": "^10.0.0",
+        "electron-preferences": "^2.5.0",
+        "tmi.js": "^1.8.5",
+        "v8-compile-cache": "^2.3.0"
+    },
+    "build": {
+        "appId": "com.argowizbang.mass-ban-bomb",
+        "productName": "Mass Ban Bomb for Twitch",
+        "artifactName": "${productName}-setup-${version}.${ext}",
+        "directories": {
+            "output": "build"
+        },
+        "linux": {
+            "target": [
+                "AppImage",
+                "deb"
+            ],
+            "icon": "assets/icons/icon.png"
+        },
+        "mac": {
+            "icon": "assets/icons/mac/icon.icns"
+        },
+        "dmg": {
+            "background": "build/background@2x.png",
+            "icon": "build/icon.icns"
+        },
+        "nsis": {
+            "perMachine":                         true,
+            "oneClick":                           false,
+            "allowToChangeInstallationDirectory": true
+        },
+        "win": {
+            "target": "NSIS",
+            "icon": "assets/icons/icon.ico"
+        }
+    },
+    "publish": {
+        "provider": "github"
+    },
+    "packageManager": "yarn@3.0.2"
+}
