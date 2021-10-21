@@ -7,10 +7,9 @@
     "scripts": {
         "start":         "npm install && electron .",
         "dist":          "electron-builder",
-        "pack":          "cross-env NODE_ENV=production && electron-builder --dir",
+        "pack":          "NODE_ENV=production electron-builder --dir",
         "postInstall":   "electron-builder install-app-deps"
     },
-    "files": [],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/argowizbang/mass-ban-bomb.git"
@@ -55,6 +54,9 @@
         "directories": {
             "output": "build"
         },
+        "extraFiles": [
+            ".env"
+        ],
         "linux": {
             "target": [
                 "AppImage",
