@@ -1,7 +1,7 @@
 {
     "name": "mass-ban-bomb",
     "productName": "Mass Ban Bomb for Twitch",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Execute mass bans in Twitch channels you moderate!",
     "main": "main.js",
     "scripts": {

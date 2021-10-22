@@ -14,7 +14,8 @@ const { contextBridge, ipcRenderer } = require( 'electron' ),
         'pauseAction',
         'readyToProcess',
         'rendererError',
-        'runAction'
+        'runAction',
+        'showPreferences'
     ];
 
 contextBridge.exposeInMainWorld(

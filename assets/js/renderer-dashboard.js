@@ -2,11 +2,9 @@ window.addEventListener( 'DOMContentLoaded', () => {
     const dashboardForm        = document.getElementById( 'action-form' ),
           formContent          = document.getElementById( 'form-content' ),
           accountsListTextArea = document.getElementById( 'accounts-list' ),
-          dropZone             = document.getElementById( 'accounts-file-drop-zone' ),
           channelsSelect       = document.getElementById( 'channels-select' ),
           banReasonContain     = document.getElementById( 'ban-reason-contain' ),
           banReasonInput       = document.getElementById( 'ban-reason' ),
-          unbanCB              = document.getElementById( 'unban-action-cb' ),
           confirmCB            = document.getElementById( 'confirm-cb' ),
           launchBtn            = document.getElementById( 'launch-button' ),
           preferences          = window.api.sendSync( 'getPreferences' ),
@@ -56,7 +54,7 @@ window.addEventListener( 'DOMContentLoaded', () => {
     let savedChannels = preferences.twitch.modChannels;
 
     // Accounts file normal upload
-    dropZone.addEventListener( 'click', ( event ) => {
+    document.getElementById( 'accounts-file-drop-zone' ).addEventListener( 'click', ( event ) => {
         window.api.send( 'getAccountsFiles' );
     } );
 
@@ -102,7 +100,7 @@ window.addEventListener( 'DOMContentLoaded', () => {
     } );
 
     // Enable/disable ban reason text input when Unban switch is toggled
-    unbanCB.addEventListener( 'change', ( event ) => {
+    document.getElementById( 'unban-action-cb' ).addEventListener( 'change', ( event ) => {
         if ( event.target.checked ) {
             banReasonContain.classList.add( 'disabled' );
             banReasonInput.disabled = true;
@@ -128,6 +126,11 @@ window.addEventListener( 'DOMContentLoaded', () => {
         savedChannels = preferences.twitch.modChannels;
 
         populateChannels( savedChannels );
+    } );
+
+    // Show preferences when appropriate button is clicked
+    document.getElementById( 'show-preferences' ).addEventListener( 'click', () => {
+        window.api.send( 'showPreferences' );
     } );
 
     // Collect and transfer form data to main process
