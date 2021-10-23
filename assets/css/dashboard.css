@@ -3,6 +3,10 @@ textarea {
     outline-color: var(--color-twitch-pac);
 }
 
+.divider {
+    margin: 6px auto 9px;
+}
+
 #dashboard-title {
     margin: 0 0 10px;
     color: var(--color-twitch-purple);
@@ -18,7 +22,7 @@ textarea {
 #form-content {
     display: grid;
     grid-template-columns: 1.7fr 2fr;
-    grid-template-rows: 0.5fr 0.2fr 0.5fr 0.05fr 0.25fr;
+    grid-template-rows: 0.5fr 0.05fr 0.2fr 0.05fr 0.5fr 0.05fr 0.25fr;
     grid-row-gap: 10px;
     border: 0;
     margin: 0;
@@ -160,9 +164,14 @@ textarea {
                         );
         }
 
+    #accounts-file-drop-zone + .divider {
+        --color-divider: var(--color-twitch-pac);
+        grid-area: 2 / 1 / 3 / 3;
+    }
+
     /* Ban Reason */
     #ban-reason-contain {
-        grid-area: 2 / 1 / 3 / 3;
+        grid-area: 3 / 1 / 4 / 3;
         transition: opacity 0.3s;
     }
 
@@ -196,9 +205,14 @@ textarea {
             --color-inner-background: var(--color-gradient-inner);
         }
 
+    #ban-reason-contain + .divider {
+        --color-divider: var(--color-twitch-jiggle);
+        grid-area: 4 / 1 / 5 / 3;
+    }
+
     /* Channels Select */
     #channels-select-contain {
-        grid-area: 3 / 1 / 4 / 3;
+        grid-area: 5 / 1 / 6 / 3;
     }
 
         #channels-select-contain .label-text {
@@ -291,8 +305,7 @@ textarea {
 
     #channels-select-contain + .divider {
         --color-divider: var(--color-twitch-wipeout);
-        grid-area: 4 / 1 / 5 / 3;
-        margin: 6px auto 9px;
+        grid-area: 6 / 1 / 7 / 3;
     }
 
     #show-preferences {
@@ -307,7 +320,7 @@ textarea {
 
     /* Ban Action Toggle */
     #unban-action-contain {
-        grid-area: 5 / 1 / 6 / 2;
+        grid-area: 7 / 1 / 8 / 2;
         text-align: center;
     }
 
@@ -438,7 +451,7 @@ textarea {
 
     /* Confirm/Submit */
     #submit-contain {
-        grid-area: 5 / 2 / 6 / 3;
+        grid-area: 7 / 2 / 8 / 3;
         display: grid;
         grid-template-columns: 0.25fr 1fr;
         grid-template-rows: 1fr 0.25fr;
