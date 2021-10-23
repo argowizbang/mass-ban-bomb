@@ -155,6 +155,7 @@ body {
             .logging-in .account-note,
             #spinner-contain {
                 display: none;
+                pointer-events: none;
             }
 
             #spinner-contain {
