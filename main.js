@@ -1,6 +1,3 @@
-// Enable V8 code cache
-require( 'v8-compile-cache' );
-
 // Environment Variables
 require( 'dotenv' ).config();
 
@@ -89,7 +86,7 @@ const { app, BrowserWindow, dialog, ipcMain, Menu, nativeTheme, session, shell }
 
           mainWindow = new BrowserWindow( {
               width:          730,
-              height:         950,
+              height:         1000,
               icon:           path.join( __dirname, 'assets/icons/icon.ico' ),
               show:           false,
               resizable:      false,
@@ -292,7 +289,7 @@ ipcMain.on( 'confirmLogout', ( event, args ) => {
 /**
  * Logout from "Twitch Account" window
  */
-ipcMain.on( 'logout', ( event, args ) => {
+ipcMain.on( 'logout', () => {
     authProvider.getAccessToken().then( ( token ) => {
         const { revokeToken } = require( '@twurple/auth' );
         session.defaultSession.clearStorageData( { storages: 'cookies' } );
@@ -322,7 +319,7 @@ ipcMain.on( 'openExternalLink', ( event, url ) => {
 /**
  * Grab uploaded file for parsing ban list
  */
-ipcMain.on( 'getAccountsFiles', ( event ) => {
+ipcMain.on( 'getAccountsFiles', () => {
     dialog.showOpenDialog( mainWindow, {
         title:      'Choose accounts list file',
         filters:    [
@@ -391,7 +388,8 @@ ipcMain.on( 'runAction', ( event, details ) => {
 } );
 
 ipcMain.on( 'readyToProcess', ( event, details ) => {
-    let resetAccountIndex = false;
+    let skipChannel,
+        resetAccountIndex = false;
 
     if ( details.continue ) {
         actionIsRunning = true;
@@ -427,7 +425,7 @@ ipcMain.on( 'readyToProcess', ( event, details ) => {
             client.join( channel )
                 .then(
                     () => {
-                        let skipChannel = false;
+                        skipChannel = false;
 
                         currentActionDetails.accounts.slice( accountIndex ).forEach( delayLoop( ( account ) => {
                             if ( ! skipChannel && actionWindow.isVisible() && actionIsRunning ) {
@@ -482,8 +480,6 @@ ipcMain.on( 'readyToProcess', ( event, details ) => {
                                         }
 
                                         actionWindow.webContents.send( 'processAccount', actionResults );
-
-                                        return true;
                                     } )
                                     .catch( console.error );
                             }
@@ -516,14 +512,12 @@ ipcMain.on( 'readyToProcess', ( event, details ) => {
                         if ( actionIsRunning && accountIndex === currentActionDetails.accounts.length ) {
                             channelIndex++;
                             client.part( channel );
-                            return true;
                         }
                     },
                     () => {
                         if ( actionIsRunning && accountIndex === currentActionDetails.accounts.length ) {
                             channelIndex++;
                             client.part( channel );
-                            return true;
                         }
                     } )
                 .catch( console.error );
