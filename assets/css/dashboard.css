@@ -124,7 +124,7 @@ textarea {
             transform: translate(0%, 50%);
             width: 33px;
             height: 2px;
-            background: var(--color-twitch-pac);
+            background: #bf7ebc;
         }
 
     /* Ban File Drop Zone */
